@@ -4,13 +4,17 @@ const add = document.getElementById("add")
 const minus = document.getElementById("minus")
 const number = document.querySelector("span")
 
+const ADD = "add"
+const MINUS = "minus"
+
 const countModifier = (count = 0, action) => {
-  if (action.type === "add") {
-    return count + 1
-  } else if (action.type === "minus") {
-    return count - 1
-  } else {
-    return count
+  switch (action.type) {
+    case ADD:
+      return count + 1
+    case MINUS:
+      return count - 1
+    default:
+      return count
   }
 }
 
@@ -21,12 +25,12 @@ const onChange = () => {
 }
 
 const handleAdd = () => {
-  countStore.dispatch({ type: "add" })
+  countStore.dispatch({ type: ADD })
   onChange()
 }
 
 const handleMinus = () => {
-  countStore.dispatch({ type: "minus" })
+  countStore.dispatch({ type: MINUS })
   onChange()
 }
 
