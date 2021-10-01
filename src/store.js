@@ -13,7 +13,7 @@ export const addToDo = text => {
 export const deleteToDo = id => {
   return {
     type: DELETE,
-    id
+    id: parseInt(id)
   }
 }
 
@@ -29,5 +29,10 @@ const reducer = (state = [], action) => {
 }
 
 const store = createStore(reducer)
+
+export const actionCreators = {
+  addToDo,
+  deleteToDo
+}
 
 export default store
